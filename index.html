@@ -3,139 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Doğum Günü Sürprizi 🎂</title>
+<title>İyi Ki Doğdun 🎂</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-  margin:0;
-  min-height:100vh;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
-  color:white;
-  overflow-x:hidden;
-  text-align:center;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffc3a0);
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
 }
+
 .container{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:25px;
+width:90%;
+max-width:700px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+padding:35px;
+border-radius:30px;
+box-shadow:0 15px 40px rgba(0,0,0,0.25);
+animation:fadeIn 1.2s ease;
+position:relative;
+z-index:2;
 }
-.card{
-  max-width:650px;
-  width:100%;
-  background:rgba(255,255,255,.18);
-  backdrop-filter:blur(12px);
-  border-radius:30px;
-  padding:30px;
-  box-shadow:0 15px 45px rgba(0,0,0,.25);
-  animation:open 1s ease;
+
+h1{
+font-size:45px;
+margin-bottom:10px;
 }
-@keyframes open{
-  from{opacity:0;transform:scale(.8)}
-  to{opacity:1;transform:scale(1)}
+
+.subtitle{
+font-size:20px;
+margin-bottom:25px;
 }
-h1{font-size:36px;margin-bottom:10px}
-.name{
-  font-size:28px;
-  font-weight:bold;
-  color:#fff700;
-}
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin:20px 0;
-  flex-wrap:wrap;
-}
-.time{
-  background:white;
-  color:#ff4f81;
-  padding:12px;
-  border-radius:15px;
-  min-width:70px;
-  font-weight:bold;
-}
+
 .cake{
-  font-size:100px;
-  cursor:pointer;
-  animation:bounce 1.5s infinite;
+font-size:120px;
+cursor:pointer;
+animation:bounce 1.5s infinite;
+transition:.3s;
 }
-@keyframes bounce{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-15px)}
+
+.cake:hover{
+transform:scale(1.1);
 }
+
 .note{
-  display:none;
-  background:white;
-  color:#333;
-  border-radius:20px;
-  padding:20px;
-  margin-top:20px;
-  line-height:1.7;
-  animation:fade .7s ease;
+display:none;
+margin-top:25px;
+background:white;
+color:#333;
+padding:25px;
+border-radius:25px;
+line-height:1.8;
+animation:show .8s ease;
 }
-@keyframes fade{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
+
+.note h2{
+margin-bottom:10px;
+color:#ff4f81;
 }
+
+.buttons{
+margin-top:20px;
+}
+
 button{
-  border:0;
-  padding:13px 24px;
-  border-radius:30px;
-  background:#ff4f81;
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-  margin:8px;
+padding:14px 22px;
+border:none;
+border-radius:30px;
+background:#ff4f81;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin:8px;
+transition:.3s;
 }
-button:hover{transform:scale(1.05)}
+
+button:hover{
+transform:scale(1.07);
+}
+
 .gallery{
-  display:none;
-  margin-top:20px;
+display:none;
+margin-top:25px;
 }
+
 .gallery img{
-  width:100%;
-  max-height:300px;
-  object-fit:cover;
-  border-radius:20px;
-  margin-top:10px;
+width:100%;
+border-radius:20px;
+height:320px;
+object-fit:cover;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
+
+.gift-box{
+display:none;
+margin-top:25px;
+animation:show 1s ease;
+}
+
 .gift{
-  font-size:80px;
-  cursor:pointer;
-  animation:pulse 1.3s infinite;
+font-size:100px;
+animation:pulse 1.2s infinite;
 }
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.12)}
-}
-.balloon{
-  position:fixed;
-  bottom:-100px;
-  font-size:40px;
-  animation:fly 8s linear infinite;
-  z-index:-1;
-}
-@keyframes fly{
-  from{transform:translateY(0)}
-  to{transform:translateY(-120vh)}
-}
+
 .firework{
-  position:fixed;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:white;
-  animation:explode 1s ease-out forwards;
+position:fixed;
+width:8px;
+height:8px;
+border-radius:50%;
+background:white;
+pointer-events:none;
+animation:explode 1s ease-out forwards;
 }
+
+.balloon{
+position:fixed;
+bottom:-100px;
+font-size:40px;
+animation:fly linear infinite;
+z-index:1;
+}
+
+.musicText{
+margin-top:15px;
+font-size:14px;
+opacity:.8;
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+@keyframes pulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.12)}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:scale(.7);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes fly{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-120vh);
+}
+}
+
 @keyframes explode{
-  to{
-    transform:translate(var(--x),var(--y));
-    opacity:0;
-  }
+to{
+transform:translate(var(--x),var(--y));
+opacity:0;
+}
 }
 </style>
 </head>
@@ -143,115 +195,159 @@ button:hover{transform:scale(1.05)}
 <body>
 
 <audio id="music" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
-  <div class="card">
-    <h1>🎉 Doğum Günü Sürprizin Var 🎉</h1>
-    <div class="name">İyi ki Doğdun Arkadaşım 💝</div>
 
-    <p>Pastaya tıkla ve sürprizi aç 🎂</p>
+<h1>🎉 İyi Ki Doğdun 🎉</h1>
 
-    <div class="countdown">
-      <div class="time"><span id="d">0</span><br>Gün</div>
-      <div class="time"><span id="h">0</span><br>Saat</div>
-      <div class="time"><span id="m">0</span><br>Dk</div>
-      <div class="time"><span id="s">0</span><br>Sn</div>
-    </div>
+<div class="subtitle">
+Bugün senin günün 💖
+</div>
 
-    <div class="cake" onclick="showSurprise()">🎂</div>
+<div class="cake" onclick="openSurprise()">
+🎂
+</div>
 
-    <div class="note" id="note">
-      <h2>Güzel Arkadaşım,</h2>
-      <p>
-        Yeni yaşın sana sağlık, mutluluk, başarı ve unutamayacağın güzel anılar getirsin.
-        Hayatında her şey gönlünce olsun. İyi ki varsın, iyi ki hayatımızdasın.
-      </p>
-      <strong>Doğum günün kutlu olsun! 🥳🎈</strong>
+<div class="musicText">
+Pastaya tıkla 🎵
+</div>
 
-      <br><br>
-      <button onclick="showGift()">Hediyeyi Aç 🎁</button>
-      <button onclick="showGallery()">Fotoğrafları Göster 📸</button>
-    </div>
+<div class="note" id="note">
 
-    <div id="giftBox" style="display:none;">
-      <div class="gift">🎁</div>
-      <h2>Sana küçük ama kalpten bir sürpriz...</h2>
-      <p>Bugün senin günün. Gülümsemeyi hiç bırakma 💖</p>
-    </div>
+<h2>Canım Arkadaşım,</h2>
 
-    <div class="gallery" id="gallery">
-      <h2>Güzel Anılar 📸</h2>
-      <img id="slide" src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3">
-      <p>Buraya kendi fotoğraflarınızı ekleyebiliriz.</p>
-    </div>
-  </div>
+<p>
+Yeni yaşında yüzün hep gülsün,  
+hayatın mutluluklarla dolsun.  
+İyi ki varsın, iyi ki hayatımızdasın 💖
+</p>
+
+<p>
+Bugün tüm güzellikler senin olsun 🎈  
+Doğum günün kutlu olsun 🥳
+</p>
+
+<div class="buttons">
+<button onclick="showGift()">🎁 Hediyeyi Aç</button>
+<button onclick="showGallery()">📸 Fotoğraflar</button>
+<button onclick="fireworks()">🎆 Havai Fişek</button>
+</div>
+
+</div>
+
+<div class="gift-box" id="giftBox">
+<div class="gift">🎁</div>
+
+<h2>Sürprizzz 😄</h2>
+
+<p>
+Senin gibi bir arkadaşım olduğu için çok şanslıyım 💝
+</p>
+</div>
+
+<div class="gallery" id="gallery">
+
+<h2 style="margin-bottom:15px;">
+📸 Güzel Anılar
+</h2>
+
+<img id="slide"
+src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
 </div>
 
 <script>
-function showSurprise(){
-  document.getElementById("note").style.display="block";
-  document.getElementById("music").play();
-  fireworks();
+
+function openSurprise(){
+
+document.getElementById("note").style.display="block";
+
+document.getElementById("music").play();
+
+fireworks();
+
 }
 
 function showGift(){
-  document.getElementById("giftBox").style.display="block";
-  fireworks();
+
+document.getElementById("giftBox").style.display="block";
+
+fireworks();
+
 }
 
 function showGallery(){
-  document.getElementById("gallery").style.display="block";
+
+document.getElementById("gallery").style.display="block";
+
 }
 
-const birthday = new Date("2026-12-31 00:00:00").getTime();
+function fireworks(){
 
-setInterval(()=>{
-  const now = new Date().getTime();
-  const distance = birthday - now;
+for(let i=0;i<60;i++){
 
-  if(distance > 0){
-    document.getElementById("d").innerHTML = Math.floor(distance/(1000*60*60*24));
-    document.getElementById("h").innerHTML = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    document.getElementById("m").innerHTML = Math.floor((distance%(1000*60*60))/(1000*60));
-    document.getElementById("s").innerHTML = Math.floor((distance%(1000*60))/1000);
-  }
-},1000);
+const fw=document.createElement("div");
 
-const photos = [
-"https://images.unsplash.com/photo-1464349095431-e9a21285b5f3",
-"https://images.unsplash.com/photo-1513151233558-d860c5398176",
-"https://images.unsplash.com/photo-1530103862676-de8c9debad1d"
+fw.className="firework";
+
+fw.style.left="50%";
+
+fw.style.top="50%";
+
+fw.style.setProperty("--x",(Math.random()*700-350)+"px");
+
+fw.style.setProperty("--y",(Math.random()*700-350)+"px");
+
+document.body.appendChild(fw);
+
+setTimeout(()=>fw.remove(),1000);
+
+}
+
+}
+
+const photos=[
+
+"https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200&auto=format&fit=crop",
+
+"https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=1200&auto=format&fit=crop",
+
+"https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1200&auto=format&fit=crop"
+
 ];
 
 let index=0;
+
 setInterval(()=>{
-  index=(index+1)%photos.length;
-  document.getElementById("slide").src=photos[index];
+
+index=(index+1)%photos.length;
+
+document.getElementById("slide").src=photos[index];
+
 },2500);
 
-function fireworks(){
-  for(let i=0;i<40;i++){
-    const fw=document.createElement("div");
-    fw.className="firework";
-    fw.style.left="50%";
-    fw.style.top="50%";
-    fw.style.setProperty("--x",(Math.random()*500-250)+"px");
-    fw.style.setProperty("--y",(Math.random()*500-250)+"px");
-    document.body.appendChild(fw);
-    setTimeout(()=>fw.remove(),1000);
-  }
+for(let i=0;i<25;i++){
+
+const balloon=document.createElement("div");
+
+balloon.className="balloon";
+
+balloon.innerHTML=["🎈","💖","🎉","✨"][Math.floor(Math.random()*4)];
+
+balloon.style.left=Math.random()*100+"%";
+
+balloon.style.animationDuration=(Math.random()*5+6)+"s";
+
+balloon.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(balloon);
+
 }
 
-for(let i=0;i<18;i++){
-  const b=document.createElement("div");
-  b.className="balloon";
-  b.innerHTML=["🎈","🎉","💖","⭐"][Math.floor(Math.random()*4)];
-  b.style.left=Math.random()*100+"%";
-  b.style.animationDelay=Math.random()*8+"s";
-  document.body.appendChild(b);
-}
 </script>
 
 </body>
