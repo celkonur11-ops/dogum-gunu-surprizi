@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İyi Ki Doğdun 🎂</title>
+<title>ŞERİFE 💖</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -16,39 +17,40 @@ font-family:Arial,sans-serif;
 body{
 height:100vh;
 overflow:hidden;
-background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffc3a0);
 display:flex;
 justify-content:center;
 align-items:center;
-color:white;
+background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffc3a0);
 text-align:center;
+color:white;
 }
 
 .container{
 width:90%;
 max-width:700px;
 background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
-padding:35px;
-border-radius:30px;
+backdrop-filter:blur(14px);
+padding:40px;
+border-radius:35px;
 box-shadow:0 15px 40px rgba(0,0,0,0.25);
-animation:fadeIn 1.2s ease;
+animation:open 1.2s ease;
 position:relative;
 z-index:2;
 }
 
 h1{
-font-size:45px;
-margin-bottom:10px;
+font-size:48px;
+margin-bottom:20px;
 }
 
 .subtitle{
-font-size:20px;
+font-size:22px;
+line-height:1.7;
 margin-bottom:25px;
 }
 
 .cake{
-font-size:120px;
+font-size:130px;
 cursor:pointer;
 animation:bounce 1.5s infinite;
 transition:.3s;
@@ -65,13 +67,13 @@ background:white;
 color:#333;
 padding:25px;
 border-radius:25px;
-line-height:1.8;
-animation:show .8s ease;
+line-height:1.9;
+animation:show 1s ease;
 }
 
 .note h2{
-margin-bottom:10px;
 color:#ff4f81;
+margin-bottom:10px;
 }
 
 .buttons{
@@ -101,13 +103,13 @@ margin-top:25px;
 
 .gallery img{
 width:100%;
-border-radius:20px;
 height:320px;
 object-fit:cover;
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
-.gift-box{
+.giftBox{
 display:none;
 margin-top:25px;
 animation:show 1s ease;
@@ -138,8 +140,8 @@ z-index:1;
 
 .musicText{
 margin-top:15px;
-font-size:14px;
-opacity:.8;
+font-size:15px;
+opacity:.9;
 }
 
 @keyframes bounce{
@@ -149,10 +151,10 @@ opacity:.8;
 
 @keyframes pulse{
 0%,100%{transform:scale(1)}
-50%{transform:scale(1.12)}
+50%{transform:scale(1.15)}
 }
 
-@keyframes fadeIn{
+@keyframes open{
 from{
 opacity:0;
 transform:scale(.7);
@@ -174,6 +176,13 @@ transform:translateY(0);
 }
 }
 
+@keyframes explode{
+to{
+transform:translate(var(--x),var(--y));
+opacity:0;
+}
+}
+
 @keyframes fly{
 from{
 transform:translateY(0);
@@ -183,12 +192,6 @@ transform:translateY(-120vh);
 }
 }
 
-@keyframes explode{
-to{
-transform:translate(var(--x),var(--y));
-opacity:0;
-}
-}
 </style>
 </head>
 
@@ -200,10 +203,12 @@ opacity:0;
 
 <div class="container">
 
-<h1>🎉 İyi Ki Doğdun 🎉</h1>
+<h1>🎉 ŞERİFE 🎉</h1>
 
 <div class="subtitle">
-Bugün senin günün 💖
+Bugün senin için küçük ama çok özel bir sürpriz hazırlandı 💖<br><br>
+
+Pastaya tıklayıp sürprizini açabilirsin 🎂✨
 </div>
 
 <div class="cake" onclick="openSurprise()">
@@ -216,35 +221,54 @@ Pastaya tıkla 🎵
 
 <div class="note" id="note">
 
-<h2>Canım Arkadaşım,</h2>
+<h2>İyi Ki Doğdun 💝</h2>
 
 <p>
-Yeni yaşında yüzün hep gülsün,  
-hayatın mutluluklarla dolsun.  
-İyi ki varsın, iyi ki hayatımızdasın 💖
+Yeni yaşın sana mutluluk, huzur, başarı ve bol bol gülümseme getirsin ✨
 </p>
 
 <p>
-Bugün tüm güzellikler senin olsun 🎈  
-Doğum günün kutlu olsun 🥳
+Hayatındaki tüm güzel şeyler hep seninle olsun 🌸
+</p>
+
+<p>
+İyi ki varsın ŞERİFE 💖
+</p>
+
+<p>
+Doğum günün kutlu olsun 🥳🎈
 </p>
 
 <div class="buttons">
-<button onclick="showGift()">🎁 Hediyeyi Aç</button>
-<button onclick="showGallery()">📸 Fotoğraflar</button>
-<button onclick="fireworks()">🎆 Havai Fişek</button>
-</div>
+
+<button onclick="showGift()">
+🎁 Hediyeyi Aç
+</button>
+
+<button onclick="showGallery()">
+📸 Fotoğraflar
+</button>
+
+<button onclick="fireworks()">
+🎆 Havai Fişek
+</button>
 
 </div>
 
-<div class="gift-box" id="giftBox">
-<div class="gift">🎁</div>
+</div>
+
+<div class="giftBox" id="giftBox">
+
+<div class="gift">
+🎁
+</div>
 
 <h2>Sürprizzz 😄</h2>
 
 <p>
-Senin gibi bir arkadaşım olduğu için çok şanslıyım 💝
+Senin gibi bir insanı tanıdığım için çok şanslıyım 💖
 </p>
+
 </div>
 
 <div class="gallery" id="gallery">
@@ -288,7 +312,7 @@ document.getElementById("gallery").style.display="block";
 
 function fireworks(){
 
-for(let i=0;i<60;i++){
+for(let i=0;i<70;i++){
 
 const fw=document.createElement("div");
 
@@ -298,9 +322,9 @@ fw.style.left="50%";
 
 fw.style.top="50%";
 
-fw.style.setProperty("--x",(Math.random()*700-350)+"px");
+fw.style.setProperty("--x",(Math.random()*800-400)+"px");
 
-fw.style.setProperty("--y",(Math.random()*700-350)+"px");
+fw.style.setProperty("--y",(Math.random()*800-400)+"px");
 
 document.body.appendChild(fw);
 
