@@ -96,19 +96,6 @@ button:hover{
 transform:scale(1.07);
 }
 
-.gallery{
-display:none;
-margin-top:25px;
-}
-
-.gallery img{
-width:100%;
-height:320px;
-object-fit:cover;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
 .giftBox{
 display:none;
 margin-top:25px;
@@ -197,18 +184,46 @@ transform:translateY(-120vh);
 
 <body>
 
-<audio id="music" loop>
-<source src="https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3" type="audio/mpeg">
-</audio>
+<div id="player"></div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+
+var player;
+
+function onYouTubeIframeAPIReady(){
+
+player = new YT.Player('player', {
+
+height:'0',
+width:'0',
+
+videoId:'rHbNUn2D3jc',
+
+playerVars:{
+'autoplay':0,
+'controls':0,
+'start':52,
+'end':82
+}
+
+});
+
+}
+
+</script>
 
 <div class="container">
 
 <h1>🎉 ŞERİFE 🎉</h1>
 
 <div class="subtitle">
+
 Bugün senin için küçük ama çok özel bir sürpriz hazırlandı 💖<br><br>
 
 Pastaya tıklayıp sürprizini açabilirsin 🎂✨
+
 </div>
 
 <div class="cake" onclick="openSurprise()">
@@ -245,10 +260,6 @@ Doğum günün kutlu olsun 🥳🎈
 🎁 Hediyeyi Aç
 </button>
 
-<button onclick="showGallery()">
-📸 Fotoğraflar
-</button>
-
 <button onclick="fireworks()">
 🎆 Havai Fişek
 </button>
@@ -271,17 +282,6 @@ Senin gibi bir insanı tanıdığım için çok şanslıyım 💖
 
 </div>
 
-<div class="gallery" id="gallery">
-
-<h2 style="margin-bottom:15px;">
-📸 Güzel Anılar
-</h2>
-
-<img id="slide"
-src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200&auto=format&fit=crop">
-
-</div>
-
 </div>
 
 <script>
@@ -290,7 +290,7 @@ function openSurprise(){
 
 document.getElementById("note").style.display="block";
 
-document.getElementById("music").play();
+player.playVideo();
 
 fireworks();
 
@@ -301,12 +301,6 @@ function showGift(){
 document.getElementById("giftBox").style.display="block";
 
 fireworks();
-
-}
-
-function showGallery(){
-
-document.getElementById("gallery").style.display="block";
 
 }
 
@@ -333,26 +327,6 @@ setTimeout(()=>fw.remove(),1000);
 }
 
 }
-
-const photos=[
-
-"https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1200&auto=format&fit=crop",
-
-"https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=1200&auto=format&fit=crop",
-
-"https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1200&auto=format&fit=crop"
-
-];
-
-let index=0;
-
-setInterval(()=>{
-
-index=(index+1)%photos.length;
-
-document.getElementById("slide").src=photos[index];
-
-},2500);
 
 for(let i=0;i<25;i++){
 
